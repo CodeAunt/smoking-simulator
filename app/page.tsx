@@ -174,7 +174,7 @@ export default function Home() {
             onClick={handleRestart}
             className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-lg font-medium transition-colors duration-200"
           >
-            再来一根
+            Another one
           </button>
         ) : (
           <div className="text-gray-400 text-lg tracking-wide select-none">
