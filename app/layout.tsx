@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   description: "A realistic smoking simulator that lets you experience virtual cigarette burning with accelerating effects. Press any key, click, or touch to smoke. Watch the cigarette burn down with realistic smoke animation.",
   keywords: [
     "smoking simulator",
-    "virtual cigarette", 
+    "virtual cigarette",
     "smoking animation",
     "cigarette burning",
     "smoke effects",
@@ -71,6 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-18101TFPEP" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

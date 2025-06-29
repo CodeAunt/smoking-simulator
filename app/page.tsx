@@ -236,29 +236,37 @@ export default function Home() {
   }, [handleActiveSmokingStart, handleActiveSmokingStop]);
 
   return (
-    <div ref={containerRef} className="min-h-screen flex flex-col items-center bg-black font-sans">
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center bg-black font-sans select-none">
       <div className="flex-1 flex flex-col items-center justify-end pb-32 min-h-[400px] min-w-[120px]">
         {/* 香烟结构：烟头在上，烟身在中，烟屁股在下 */}
-        <div className="relative flex flex-col items-center justify-end w-12 md:w-12 shadow-lg">
+        <div className="relative flex flex-col items-center justify-end w-12 md:w-12 shadow-lg select-none pointer-events-none">
           {/* 烟头 - 始终显示红色燃烧效果 */}
           <div
-            className="w-8 h-8 md:w-8 md:h-8 rounded-t-xl border-2 relative"
+            className="w-8 h-8 md:w-8 md:h-8 rounded-t-xl border-2 relative select-none"
             style={{
               background: cigaretteLength > 0 ? (activeSmoking ? "#ff1a00" : "#cc3300") : "#a0a0a0",
               borderColor: "#a0a0a0",
               transition: "background 0.3s",
               display: cigaretteLength > 0 ? "block" : "none",
-              boxShadow: cigaretteLength > 0 ? (activeSmoking ? "0 0 15px #ff3c00" : "0 0 8px #cc3300") : "none"
+              boxShadow: cigaretteLength > 0 ? (activeSmoking ? "0 0 15px #ff3c00" : "0 0 8px #cc3300") : "none",
+              userSelect: "none",
+              WebkitUserSelect: "none",
+              MozUserSelect: "none",
+              msUserSelect: "none"
             }}
           >
             {/* 烟雾动画 - 只有主动吸烟时才显示 */}
             {activeSmoking && cigaretteLength > 0 && (
               <div
-                className="absolute smoke-animation-vertical"
+                className="absolute smoke-animation-vertical select-none pointer-events-none"
                 style={{
                   bottom: "100px",
                   left: '50%',
-                  transform: 'translateX(-50%)'
+                  transform: 'translateX(-50%)',
+                  userSelect: "none",
+                  WebkitUserSelect: "none",
+                  MozUserSelect: "none",
+                  msUserSelect: "none"
                 }}
               >
                 <div className="smoke puff1" />
@@ -270,16 +278,26 @@ export default function Home() {
 
           {/* 烟身 - 长度会随燃烧实时减少 */}
           <div
-            className="w-full bg-gradient-to-b from-[#f5f5f5] to-[#e0e0e0] rounded-xl border-2 border-[#bbb]"
+            className="w-full bg-gradient-to-b from-[#f5f5f5] to-[#e0e0e0] rounded-xl border-2 border-[#bbb] select-none"
             style={{
               height: `${cigaretteLength}px`,
               display: cigaretteLength > 0 ? "block" : "none",
-              transition: "height 0.2s ease-out"
+              transition: "height 0.2s ease-out",
+              userSelect: "none",
+              WebkitUserSelect: "none",
+              MozUserSelect: "none",
+              msUserSelect: "none"
             }}
           />
           {/* 烟屁股 */}
           <div
-            className="w-full h-16 md:h-16 bg-gradient-to-b from-[#e0a96d] to-[#b97a3a] rounded-b-3xl border-2 border-[#b97a3a]"
+            className="w-full h-16 md:h-16 bg-gradient-to-b from-[#e0a96d] to-[#b97a3a] rounded-b-3xl border-2 border-[#b97a3a] select-none"
+            style={{
+              userSelect: "none",
+              WebkitUserSelect: "none",
+              MozUserSelect: "none",
+              msUserSelect: "none"
+            }}
           />
         </div>
       </div>
